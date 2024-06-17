@@ -36,7 +36,7 @@ export const updateUser = async (req, res) => {
   }
 
   const updatedUser = await User.findByIdAndUpdate(req.user.userId, newUser);
-  console.log(updatedUser);
+  // console.log(updatedUser);
   // Destroy old image, findByIdAndUpdate returns an old
   if (req.file && updatedUser.avatarPublicId) {
     await cloudinary.v2.uploader.destroy(updatedUser.avatarPublicId);
